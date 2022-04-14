@@ -1,5 +1,26 @@
 # Setup ESLint Prettier and Husky with Next.js
 
+## Table of contents
+
+-   [Setup ESLint Prettier and Husky with Next.js](#setup-eslint-prettier-and-husky-with-nextjs)
+    -   [Table of contents](#table-of-contents)
+    -   [Project description](#project-description)
+    -   [Getting Started](#getting-started)
+        -   [Creating the Next.JS App with npm](#creating-the-nextjs-app-with-npm)
+        -   [Setting up TypeScript](#setting-up-typescript)
+        -   [Custom tsconfig.json](#custom-tsconfigjson)
+    -   [Setting up ESLint](#setting-up-eslint)
+        -   [eslint-config-airbnb](#eslint-config-airbnb)
+    -   [Setting up Prettier](#setting-up-prettier)
+        -   [Installation Prettier](#installation-prettier)
+        -   [Customize Prettier](#customize-prettier)
+        -   [Ignore Prettier](#ignore-prettier)
+    -   [Setting up Husky](#setting-up-husky)
+        -   [Install Husky](#install-husky)
+        -   [Update package.json](#update-packagejson)
+        -   [Editing the pre-commit hook](#editing-the-pre-commit-hook)
+        -   [Configure vs code to format on save](#configure-vs-code-to-format-on-save)
+
 ## Project description
 
 How to set up ESLint, Prettier, and Husky to consistently write and style your code using and extending Airbnb’s Typescript style guidelines. and in bonus part, we will setup **vs code** configuration to enable `auto-format` and `auto-style`.
