@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es6", // upgrade to from es5 to es6
+        "allowUnreachableCode": false, // add => raises compiler errors about unreachable code
+        "allowUnusedLabels": false, // add =>  raises compiler errors about unused labels
+        "noFallthroughCasesInSwitch": true, // add => Ensures that any non-empty case inside a switch statement includes either break or return
+        "noImplicitReturns": true, // add => Check all code paths in a function to ensure they return a value.
+        "sourceMap": true, // add => Enables the generation of sourcemap files. Easier to debug
+        "strict": true, // turn to true => Enables a wide range of type checking behavior
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "incremental": true,
+        "esModuleInterop": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve"
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/_app.js"],
+    "exclude": ["node_modules"]
+}
