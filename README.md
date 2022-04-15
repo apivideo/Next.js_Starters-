@@ -10,7 +10,7 @@
         -   [Setting up TypeScript](#setting-up-typescript)
         -   [Custom tsconfig.json](#custom-tsconfigjson)
     -   [Setting up ESLint](#setting-up-eslint)
-        -   [eslint-config-airbnb](#eslint-config-airbnb)
+        -   [eslint-config-google](#eslint-config-google)
     -   [Setting up Prettier](#setting-up-prettier)
         -   [Installation Prettier](#installation-prettier)
         -   [Customize Prettier](#customize-prettier)
@@ -19,11 +19,11 @@
         -   [Install Husky](#install-husky)
         -   [Update package.json](#update-packagejson)
         -   [Editing the pre-commit hook](#editing-the-pre-commit-hook)
-        -   [Configure vs code to format on save](#configure-vs-code-to-format-on-save)
+    -   [Bonus: configure vs code to format on save](#bonus-configure-vs-code-to-format-on-save)
 
 ## Project description
 
-How to set up ESLint, Prettier, and Husky to consistently write and style your code using and extending Airbnb’s Typescript style guidelines. and in bonus part, we will setup **vs code** configuration to enable `auto-format` and `auto-style`.
+How to set up ESLint, Prettier, and Husky to consistently write and style your code using and extending Google’s Typescript style guidelines. In bonus part, we will setup **vs code** configuration to enable `auto-format` and `auto-style`.
 
 ## Getting Started
 
@@ -35,7 +35,7 @@ npx create-next-app starter_next.js --use-npm
 
 ### Setting up TypeScript
 
-To enable TypeScript in a Next.js app, add a `tsconfig.json` file to the root of the project.
+To enable **TypeScript** in a Next.js app, add a `tsconfig.json` file to the root of the project.
 
 ```bash
 npm install --save-dev typescript @types/react @types/node
@@ -52,7 +52,7 @@ Modify the `tsconfig.json` file a little bit to match our standards. More [deta
 ```JSON
 {
   "compilerOptions": {
-    "target": "es6", // upgrade to from es5 to es6
+    "target": "es6", // upgrade from es5 to es6
     "allowUnreachableCode": false, // add => raises compiler errors about unreachable code
     "allowUnusedLabels": false, // add =>  raises compiler errors about unused labels
     "noFallthroughCasesInSwitch": true, // add => Ensures that any non-empty case inside a switch statement includes either break or return
@@ -87,7 +87,7 @@ npm uninstall eslint-config-next
 npx eslint --init
 ```
 
-### eslint-config-airbnb
+### eslint-config-google
 
 We choose eslint google config in this case, it looks like that
 
@@ -123,7 +123,7 @@ npm install --save-dev eslint-config-prettier
 
 #To make Prettier cooperate with ESLint; add "prettier" to the extends array in your eslintrc.js file.
 # So it now should look like this:
-extends: ["plugin:react/recommended", "airbnb", "prettier"],
+extends: ["plugin:react/recommended", "google", "prettier"],
 ```
 
 ### Customize Prettier
@@ -157,8 +157,8 @@ public
 
 We are going to be using husky to perform the following whenever a git commit is made:
 
--   Check there are no Prettier no errors on our code.
--   Check there are no ESLint no errors on our code.
+-   Check there are no Prettier errors on our code.
+-   Check there are no ESLint errors on our code.
 -   Check there are no errors compiling our code from TypeScript.
 -   Check we can build our project using next build
 
@@ -185,15 +185,15 @@ npx husky-init
   },
 ```
 
--   **check-types** runs TypeScript's tsc CLI command and pretty prints any warnings/errors.
--   **check-format** asks Prettier to check all of our files (excluding the ones in .prettierignore) for formatting issues.
--   check-lint asks ESLint to check for any linting warnings/errors on an .ts, .tsx or .js files.
--   format tells prettier to automatically re-write all of our files with proper formatting
--   test-all runs a number of the above commands in sequence.
+-   `check-types` runs TypeScript's tsc CLI command and pretty prints any warnings/errors.
+-   `check-format` asks Prettier to check all of our files (excluding the ones in .prettierignore) for formatting issues.
+-   `check-lint` asks ESLint to check for any linting warnings/errors on an .ts, .tsx or .js files.
+-   `format` tells prettier to automatically re-write all of our files with proper formatting
+-   `test-all` runs a number of the above commands in sequence.
 
 ### Editing the pre-commit hook
 
-it runs prior to executing a git commit. It is fully customable [Example](https://github.com/jarrodwatts/code-like-google/blob/main/.husky/pre-commit)
+It runs prior to executing a git commit. It is fully customable [Example](https://github.com/jarrodwatts/code-like-google/blob/main/.husky/pre-commit)
 
 ```bash
 #!/bin/sh
@@ -202,20 +202,20 @@ it runs prior to executing a git commit. It is fully customable [Example](https:
 npm test-all
 ```
 
-### Configure vs code to format on save
+## Bonus: configure vs code to format on save
 
 1. Create a `.vscode` folder at the root of your directory
 2. Within that folder, create a `settings.json` file.
-3. Change your settings.json to:
+3. Change your `settings.json` to:
 
 ```JSON
 {
-"editor.formatOnPaste": true,
-"editor.formatOnSave": true,
-"editor.defaultFormatter": "esbenp.prettier-vscode",
-"editor.codeActionsOnSave": {
- "source.fixAll.eslint": true,
- "source.fixAll.format": true
-}
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.fixAll.format": true
+    }
 }
 ```
