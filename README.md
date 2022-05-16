@@ -2,24 +2,24 @@
 
 ## Table of contents
 
--   [Setup ESLint Prettier and Husky with Next.js](#setup-eslint-prettier-and-husky-with-nextjs)
-    -   [Table of contents](#table-of-contents)
-    -   [Project description](#project-description)
-    -   [Getting Started](#getting-started)
-        -   [Creating the Next.JS App with npm](#creating-the-nextjs-app-with-npm)
-        -   [Setting up TypeScript](#setting-up-typescript)
-        -   [Custom tsconfig.json](#custom-tsconfigjson)
-    -   [Setting up ESLint](#setting-up-eslint)
-        -   [eslint-config-google](#eslint-config-google)
-    -   [Setting up Prettier](#setting-up-prettier)
-        -   [Installation Prettier](#installation-prettier)
-        -   [Customize Prettier](#customize-prettier)
-        -   [Ignore Prettier](#ignore-prettier)
-    -   [Setting up Husky](#setting-up-husky)
-        -   [Install Husky](#install-husky)
-        -   [Update package.json](#update-packagejson)
-        -   [Editing the pre-commit hook](#editing-the-pre-commit-hook)
-    -   [Bonus: configure vs code to format on save](#bonus-configure-vs-code-to-format-on-save)
+- [Setup ESLint Prettier and Husky with Next.js](#setup-eslint-prettier-and-husky-with-nextjs)
+  - [Table of contents](#table-of-contents)
+  - [Project description](#project-description)
+  - [Getting Started](#getting-started)
+    - [Creating the Next.JS App with TypeScript using npm](#creating-the-nextjs-app-with-typescript-using-npm)
+    - [Custom `tsconfig.json`](#custom-tsconfigjson)
+    - [Update `.gitignore`](#update-gitignore)
+  - [Setting up ESLint](#setting-up-eslint)
+    - [eslint-config-google](#eslint-config-google)
+  - [Setting up Prettier](#setting-up-prettier)
+    - [Installation Prettier](#installation-prettier)
+    - [Customize Prettier](#customize-prettier)
+    - [Ignore Prettier](#ignore-prettier)
+  - [Setting up Husky](#setting-up-husky)
+    - [Install Husky](#install-husky)
+    - [Update package.json](#update-packagejson)
+    - [Editing the pre-commit hook](#editing-the-pre-commit-hook)
+  - [Bonus: configure vs code to format on save](#bonus-configure-vs-code-to-format-on-save)
 
 ## Project description
 
@@ -27,25 +27,13 @@ How to set up ESLint, Prettier, and Husky to consistently write and style your c
 
 ## Getting Started
 
-### Creating the Next.JS App with npm
+### Creating the Next.JS App with TypeScript using npm
 
 ```bash
-npx create-next-app starter_next.js --use-npm
+npx create-next-app@latest --ts starter_next.js --use-npm
 ```
 
-### Setting up TypeScript
-
-To enable **TypeScript** in a Next.js app, add a `tsconfig.json` file to the root of the project.
-
-```bash
-npm install --save-dev typescript @types/react @types/node
-```
-
-We can now create files with `.ts` or `.tsx` extensions. Change our `index.js` file to `index.tsx` and run `npm run dev`
-
-Next.js will automatically configure the `tsconfig` file with default values for Next.JS.
-
-### Custom tsconfig.json
+### Custom `tsconfig.json`
 
 Modify the `tsconfig.json` file a little bit to match our standards. More [details](https://www.typescriptlang.org/tsconfig)
 
@@ -69,12 +57,20 @@ Modify the `tsconfig.json` file a little bit to match our standards. More [deta
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": true
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
+```
+
+### Update `.gitignore`
+
+In the .gitignore file, add the following line
+
+```bash
+tsconfig.tsbuildinfo
 ```
 
 ## Setting up ESLint
