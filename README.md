@@ -2,7 +2,7 @@
 
 ## Table of contents
 
-- [Setup ESLint Prettier and Husky with Next.js](#setup-eslint-prettier-and-husky-with-nextjs)
+- [Setup ESLint Prettier and Husky with Next.js and Typescript](#setup-eslint-prettier-and-husky-with-nextjs-and-typescript)
   - [Table of contents](#table-of-contents)
   - [Project description](#project-description)
   - [Getting Started](#getting-started)
