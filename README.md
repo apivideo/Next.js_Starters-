@@ -1,4 +1,4 @@
-# Setup ESLint Prettier and Husky with Next.js
+# Setup ESLint Prettier and Husky with Next.js and Typescript
 
 ## Table of contents
 
@@ -22,7 +22,7 @@
 
 ## Project description
 
-How to set up ESLint, Prettier, and Husky to consistently write and style your code using and extending Google’s Typescript style guidelines. In bonus part, we will setup **vs code** configuration to enable `auto-format` and `auto-style`.
+How to set up ESLint, Prettier, and Husky to consistently write and style your code using Typescript. In bonus part, we will setup **vs code** configuration to enable `auto-format` and `auto-style`.
 
 ## Getting Started
 
