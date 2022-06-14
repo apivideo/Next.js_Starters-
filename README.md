@@ -8,7 +8,6 @@
   - [Getting Started](#getting-started)
     - [Creating the Next.JS App with TypeScript using npm](#creating-the-nextjs-app-with-typescript-using-npm)
     - [Custom `tsconfig.json`](#custom-tsconfigjson)
-    - [Update `.gitignore`](#update-gitignore)
   - [Setting up ESLint](#setting-up-eslint)
     - [eslint-config-google](#eslint-config-google)
   - [Setting up Prettier](#setting-up-prettier)
@@ -65,43 +64,27 @@ Modify the `tsconfig.json` file a little bit to match our standards. More [deta
 }
 ```
 
-### Update `.gitignore`
-
-In the .gitignore file, add the following line
-
-```bash
-tsconfig.tsbuildinfo
-```
-
 ## Setting up ESLint
 
 ```bash
-# If you encounter some conflicts, remove eslint-config-next package
-npm uninstall eslint-config-next
-
 # Configure
 npx eslint --init
 ```
 
-### eslint-config-google
+### eslint-config
 
-We choose eslint google config in this case, it looks like that
+We choose eslint to enforce code style, it looks like that:
 
 ````md
-✔ How would you like to use ESLint? · style
+✔ How would you like to use ESLint? · problems
 ✔ What type of modules does your project use? · esm
 ✔ Which framework does your project use? · react
 ✔ Does your project use TypeScript? · No / Yes
 ✔ Where does your code run? · browser
-✔ How would you like to define a style for your project? · guide
-✔ Which style guide do you want to follow? · google
 ✔ What format do you want your config file to be in? · JavaScript
-
-```bash
-# Don't forget to reinstall the package
-npm install eslint-config-next
-```
 ````
+
+It installs thoses packages: `eslint-plugin-react@latest`, `@typescript-eslint/eslint-plugin@latest`, `@typescript-eslint/parser@latest`
 
 ## Setting up Prettier
 
