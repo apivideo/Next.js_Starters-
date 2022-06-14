@@ -102,7 +102,7 @@ npm install --save-dev eslint-config-prettier
 
 #To make Prettier cooperate with ESLint; add "prettier" to the extends array in your eslintrc.js file.
 # So it now should look like this:
-extends: ["plugin:react/recommended", "google", "prettier"],
+extends: ["prettier", "eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"]
 ```
 
 ### Customize Prettier
